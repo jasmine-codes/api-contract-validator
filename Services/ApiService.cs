@@ -19,7 +19,12 @@ namespace ApiContractValidator.Services
 
             if (!response.IsSuccessful) throw new Exception($"API call failed: {response.StatusCode}");
 
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            if (string.IsNullOrWhiteSpace(response.Content)) throw new Exception("Empty API response");
+
+            var result = JsonConvert.DeserializeObject<T>(response.Content);
+            if (result == null) throw new Exception("Deserialization failed");
+
+            return result;
         }
     }
 }
