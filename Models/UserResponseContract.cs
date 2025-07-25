@@ -7,5 +7,3 @@ namespace ApiContractValidator.Models
         public string email {get; set;}
     }
 }
-
-//continue 6. API Caller Service
