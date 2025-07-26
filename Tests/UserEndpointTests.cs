@@ -10,7 +10,8 @@ namespace ApiContractValidator.Tests
         [Fact]
         public void GetUser_ShouldMatchContract()
         {
-            
+            var api = new ApiService("https://jsonplaceholder.typicode.com");
+            var user = api.Get<UserResponseContract>("/users/1");
         }
     }
 }
