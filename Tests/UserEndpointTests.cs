@@ -2,6 +2,8 @@ using Xunit;
 using FluentAssertions;
 using ApiContractValidator.Models;
 using ApiContractValidator.Services;
+using Newtonsoft.Json.Linq;
+using FluentAssertions.Equivalency.Steps; //for pretty-printing JSON
 
 namespace ApiContractValidator.Tests
 {
@@ -11,6 +13,16 @@ namespace ApiContractValidator.Tests
         public void GetUser_ShouldMatchContract()
         {
             var api = new ApiService("https://jsonplaceholder.typicode.com");
+
+            //grab raw response JSON
+            var rawJson = api.GetRaw("users/1");
+
+            //pretty-print
+            var prettyJson = JToken.Parse(rawJson).ToString(Newtonsoft.Json.Formatting.Indented);
+
+            Console.WriteLine("Raw JSON Response:");
+            Console.WriteLine(prettyJson);
+
             var user = api.Get<UserResponseContract>("/users/1");
 
             user.Should().NotBeNull();
