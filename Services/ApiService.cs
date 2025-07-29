@@ -26,5 +26,16 @@ namespace ApiContractValidator.Services
 
             return result;
         }
+
+        public string GetRaw(string endpoint)
+        {
+            var request = new RestRequest(endpoint, Method.Get);
+            var response = _client.Execute(request);
+
+            if (!response.IsSuccessful) throw new Exception($"API call failed: {response.StatusCode}");
+            if (string.IsNullOrWhiteSpace(response.Content)) throw new Exception("Empty API response");
+
+            return response.Content;
+        }
     }
 }
