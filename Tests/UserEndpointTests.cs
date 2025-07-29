@@ -2,8 +2,8 @@ using Xunit;
 using FluentAssertions;
 using ApiContractValidator.Models;
 using ApiContractValidator.Services;
-using Newtonsoft.Json.Linq;
-using FluentAssertions.Equivalency.Steps; //for pretty-printing JSON
+using Newtonsoft.Json.Linq; //for pretty-printing JSON
+using FluentAssertions.Equivalency.Steps; 
 
 namespace ApiContractValidator.Tests
 {
