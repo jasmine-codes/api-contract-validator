@@ -28,9 +28,12 @@ namespace ApiContractValidator.Tests
             var actualJson = api.GetRaw(endpoint); //live API response
             var expectedJson = LoadExpectedJson(expectedFile); //stored expectations
 
+            var actual = JToken.Parse(actualJson);
+            var expected = JToken.Parse(expectedJson);
+
             Console.WriteLine($"Comparing User {userId}");
 
-            actualJson.Should().BeEquivalentTo(expectedJson);
+            actual.Should().BeEquivalentTo(expected);
         }
     }
 }
