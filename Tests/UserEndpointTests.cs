@@ -11,7 +11,7 @@ namespace ApiContractValidator.Tests
     {
         private string LoadExpectedJson(string fileName)
         {
-            var path = Path.Combine("Contracts", fileName);
+            var path = Path.Combine(AppContext.BaseDirectory, "Contracts", fileName);
             return File.ReadAllText(path);
         }
 
