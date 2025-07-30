@@ -9,24 +9,25 @@ namespace ApiContractValidator.Tests
 {
     public class UserEndpointTests
     {
-        [Fact]
-        public void GetUser_ShouldMatchContract()
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+
+        public void GetUser_ShouldMatchContract(int userId)
         {
             var api = new ApiService("https://jsonplaceholder.typicode.com");
+            var endpoint = $"/users/{userId}";
 
-            //grab raw response JSON
-            var rawJson = api.GetRaw("users/1");
-
-            //pretty-print
+            var rawJson = api.GetRaw(endpoint);
             var prettyJson = JToken.Parse(rawJson).ToString(Newtonsoft.Json.Formatting.Indented);
+            Console.WriteLine($"Raw JSON for User {userId}:\n{prettyJson}");
 
-            Console.WriteLine("Raw JSON Response:");
-            Console.WriteLine(prettyJson);
-
-            var user = api.Get<UserResponseContract>("/users/1");
+            var user = api.Get<UserResponseContract>(endpoint);
 
             user.Should().NotBeNull();
-            user.id.Should().BeGreaterThan(0);
+            user.id.Should().Be(userId);
             user.name.Should().NotBeNullOrEmpty();
             user.email.Should().Contain("@");
         }
