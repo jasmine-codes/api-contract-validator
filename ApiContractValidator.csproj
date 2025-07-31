@@ -20,6 +20,9 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <None Update="Contracts/*.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
   </ItemGroup>
 
 </Project>
