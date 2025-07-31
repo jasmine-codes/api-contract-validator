@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiContractValidator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e677740d4964184262b15154bb5b8e034ce1b30b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58b08a56defe7ae2858b97d20da7e1f6e3313abe")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiContractValidator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiContractValidator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
