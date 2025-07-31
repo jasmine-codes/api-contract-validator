@@ -1,5 +1,0 @@
-<ItemGroup>
-  <None Update="Contracts/*.json">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </None>
-  </ItemGroup>
